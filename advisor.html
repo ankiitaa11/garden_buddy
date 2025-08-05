@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Plant Advisor - Garden Buddy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f0fff4;
+    }
+    header {
+      background-color: #38a169;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    main {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    input, textarea, button {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background: #38a169;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #e6ffed;
+      border: 1px solid #b2f5ea;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿 AI Plant Advisor</h1>
+    <a href="home.html" style="color:white;text-decoration:none;font-weight:bold;">🏠 Home</a>
+  </header>
+  <main>
+    <h2>Ask a Plant Question</h2>
+    <form id="advisorForm">
+      <textarea placeholder="Describe your plant issue or ask for care tips..." required></textarea>
+      <button type="submit">Get Advice</button>
+    </form>
+    <div class="response" id="responseBox" style="display:none">
+      🌱 <strong>Advice:</strong> Your plant likely needs more indirect sunlight and watering once every 3 days. Trim dead leaves regularly. (This is a static response. For AI integration, connect to a backend.)
+    </div>
+  </main>
+<script>
+  const responseBox = document.getElementById('responseBox');
+  const textarea = document.querySelector('textarea');
+
+  document.getElementById('advisorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    responseBox.style.display = 'block';
+  });
+
+  textarea.addEventListener('input', function() {
+    responseBox.style.display = 'none';
+  });
+</script>
+
+  </body>
+</html>
