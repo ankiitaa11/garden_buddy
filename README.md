@@ -1,4 +1,5 @@
 # garden_buddy
+it's just a prototype and is still under development
 # 🌿 Garden Buddy
 
 **Garden Buddy** is a user-friendly, AI-assisted gardening web application aimed at making plant care easy, accessible, and efficient — especially for the elderly and specially-abled. It provides features like plant monitoring, shopping, AI advice, reminders, and a digital journal, all in one place.
