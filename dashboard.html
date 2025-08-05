@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Garden Buddy Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-color: #e6f4ea;
+      --card-bg: #ffffff;
+      --text-color: #2d3748;
+      --accent-color: #38a169;
+    }
+    [data-theme="dark"] {
+      --bg-color: #1a202c;
+      --card-bg: #2d3748;
+      --text-color: #f7fafc;
+      --accent-color: #4fd1c5;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+    header {
+      background: var(--accent-color);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    .settings-dropdown {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .settings-icon {
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
+    .settings-menu {
+      display: none;
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: var(--card-bg);
+      color: var(--text-color);
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      z-index: 10;
+      width: 220px;
+      padding: 10px;
+    }
+    .settings-menu.active {
+      display: block;
+    }
+    .settings-menu div {
+      padding: 0.5rem 0;
+      cursor: pointer;
+    }
+    .settings-menu div:hover {
+      color: var(--accent-color);
+    }
+    .language-select select {
+      width: 100%;
+      padding: 0.4rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 0.5rem;
+    }
+    .profile-section {
+      padding: 1rem;
+      font-size: 0.9rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      margin: 1rem;
+      border-radius: 8px;
+      z-index: 100;
+      position: relative;
+    }
+    .shop-link {
+      margin: 1rem 2rem;
+      text-align: right;
+    }
+    .shop-link a {
+      padding: 0.7rem 1.2rem;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    main {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-bottom: 1rem;
+      color: var(--accent-color);
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+    .home-link {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <header>
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2907/2907964.png" alt="Logo">
+      <h1>Garden Buddy</h1>
+    </div>
+
+    <div class="settings-dropdown">
+      <a class="home-link" href="home.html">🏠 Home</a>
+      <i class="fas fa-ellipsis-v settings-icon" onclick="toggleSettings()"></i>
+      <div id="settingsMenu" class="settings-menu">
+        <div onclick="toggleTheme()">🌓 Toggle Theme</div>
+        <div>
+          🌐 Language
+          <div class="language-select">
+            <select id="lang" onchange="changeLanguage()">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+              <option value="ta">தமிழ்</option>
+            </select>
+          </div>
+        </div>
+        <div onclick="toggleProfileSection()">🔐 Settings & Privacy</div>
+      </div>
+    </div>
+  </header>
+
+  <div class="shop-link">
+    <a href="shop.html">🛒 Go to Garden Store</a>
+  </div>
+
+  <div id="profileSection" class="profile-section" style="display:none;">
+    <h3>👤 Profile Settings</h3>
+    <p><strong>Name:</strong> John Doe</p>
+    <p><strong>Email:</strong> johndoe@example.com</p>
+    <h4>🔑 Change Password</h4>
+    <input type="password" placeholder="Current Password">
+    <input type="password" placeholder="New Password">
+    <input type="password" placeholder="Confirm New Password">
+    <button>Update Password</button>
+  </div>
+
+  <main>
+    <div class="card">
+      <h3>Soil Health</h3>
+      <p>Soil is healthy ✅ with optimal pH and nutrients. No action needed.</p>
+    </div>
+    <div class="card">
+      <h3>Moisture Level</h3>
+      <p>Current moisture: 52%. No watering needed.</p>
+    </div>
+    <div class="card">
+      <h3>Your Plants</h3>
+      <ul>
+        <li>🌿 Basil</li>
+        <li>🌱 Aloe Vera</li>
+        <li>🌼 Marigold</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>AI Recommendations</h3>
+      <p>Increase sunlight exposure for Marigold. Consider using compost next week.</p>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Garden Buddy. All rights reserved.
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const current = body.getAttribute("data-theme");
+      body.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+    }
+
+    function toggleSettings() {
+      const menu = document.getElementById("settingsMenu");
+      menu.classList.toggle("active");
+    }
+
+    function toggleProfileSection() {
+      const section = document.getElementById("profileSection");
+      section.style.display = section.style.display === "none" ? "block" : "none";
+    }
+
+    function changeLanguage() {
+      const lang = document.getElementById("lang").value;
+      alert("Language changed to: " + lang);
+    }
+
+    window.onclick = function(event) {
+      const settings = document.getElementById("settingsMenu");
+      if (!event.target.matches('.settings-icon')) {
+        if (settings.classList.contains('active')) {
+          settings.classList.remove('active');
+        }
+      }
+    }
+  </script>
+</body>
+</html>
