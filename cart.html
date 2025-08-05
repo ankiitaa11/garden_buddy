@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart & Checkout</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5fff6;
+      padding: 2rem;
+      margin: 0;
+    }
+    h1, h2 {
+      color: #2d3748;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem;
+      background: #fff;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .cart-item div {
+      flex: 1;
+    }
+    .total {
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-align: right;
+      margin: 1rem 0;
+    }
+    form {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin: 0.5rem 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #38a169;
+      color: white;
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart</h1>
+
+  <div class="cart-item">
+    <div>Organic Tomato Seeds</div>
+    <div>₹50</div>
+    <div><button onclick="removeItem(this)">Remove</button></div>
+  </div>
+  <div class="cart-item">
+    <div>Bio Fertilizer</div>
+    <div>₹120</div>
+    <div><button onclick="removeItem(this)">Remove</button></div>
+  </div>
+<header style="background:#38a169; padding:1rem; color:white; display:flex; justify-content:space-between;">
+  <strong>🛒 Cart</strong>
+  <a href="shop.html" style="color:white; text-decoration:none;">← Back to Store</a>
+</header>
+
+
+  <div class="total">
+    Total: ₹170
+  </div>
+
+  <h2>Checkout</h2>
+  <form onsubmit="submitOrder(event)">
+    <input type="text" placeholder="Full Name" required>
+    <input type="text" placeholder="Address" required>
+    <input type="text" placeholder="City" required>
+    <input type="text" placeholder="State" required>
+    <input type="text" placeholder="PIN Code" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <button type="submit">Place Order</button>
+  </form>
+
+  <script>
+    function removeItem(btn) {
+      const item = btn.closest('.cart-item');
+      item.remove();
+      alert('Item removed! (Total calculation not dynamic in demo)');
+    }
+
+    function submitOrder(event) {
+      event.preventDefault();
+      alert('🎉 Order placed successfully!');
+    }
+  </script>
+
+</body>
+</html>
