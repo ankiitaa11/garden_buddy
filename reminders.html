@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reminders - Garden Buddy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f0fff4;
+    }
+    header {
+      background-color: #38a169;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #38a169;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #e6ffed;
+      margin: 0.5rem 0;
+      padding: 0.75rem;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔔 Reminders</h1>
+    <a href="home.html" style="color:white;text-decoration:none;font-weight:bold;">🏠 Home</a>
+  </header>
+
+  <main>
+    <h2>Set a New Reminder</h2>
+    <form id="reminderForm">
+      <input type="text" placeholder="e.g., Water the roses at 7 AM" required>
+      <button type="submit">Add Reminder</button>
+    </form>
+    <h3>Your Reminders</h3>
+    <ul id="reminderList"></ul>
+  </main>
+
+  <script>
+    const form = document.getElementById('reminderForm');
+    const list = document.getElementById('reminderList');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const input = form.querySelector('input');
+      const reminderText = input.value.trim();
+
+      if (reminderText) {
+        const item = document.createElement('li');
+        item.textContent = reminderText;
+        list.appendChild(item);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>
