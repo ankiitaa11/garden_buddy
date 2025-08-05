@@ -126,12 +126,7 @@ This project is licensed under the [MIT License](https://opensource.org/licenses
 
 ---
 
-## 📬 Contact
 
-For contributions, suggestions, or collaboration:
-**Developer:** ankita  
-**Email:** your-email@example.com  
-**GitHub:** [your-github-username](https://github.com/your-github-username)
 
 ---
 
