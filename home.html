@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Garden Buddy - Home</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0fff4;
+    }
+    header {
+      background: #38a169;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+    header img {
+      width: 40px;
+      margin-right: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1rem;
+    }
+    main {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #38a169;
+    }
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/2907/2907964.png" alt="Logo">
+      <h1>Garden Buddy</h1>
+    </div>
+    <nav>
+      <a href="index.html">Logout</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="card">
+      <a href="dashboard.html">
+        <i class="fas fa-chart-line"></i>
+        <h3>Dashboard</h3>
+        <p>Monitor your garden's stats and health.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a href="shop.html">
+        <i class="fas fa-store"></i>
+        <h3>Garden Store</h3>
+        <p>Shop seeds, tools, and fertilizers.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a href="advisor.html">
+        <i class="fas fa-robot"></i>
+        <h3>AI Plant Advisor</h3>
+        <p>Get smart care tips for your plants.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a href="journal.html">
+        <i class="fas fa-book"></i>
+        <h3>Daily Plant Journal</h3>
+        <p>Track your plant care routines.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a href="reports.html">
+        <i class="fas fa-chart-pie"></i>
+        <h3>Reports</h3>
+        <p>See your growth and soil stats.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a href="reminders.html">
+        <i class="fas fa-bell"></i>
+        <h3>Reminders</h3>
+        <p>Set watering & care reminders.</p>
+      </a>
+    </div>
+    <div class="card">
+      <a href="identifier.html">
+        <i class="fas fa-camera"></i>
+        <h3>Plant Identifier</h3>
+        <p>Upload a photo to identify plants.</p>
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Garden Buddy. All rights reserved.
+  </footer>
+</body>
+</html>
