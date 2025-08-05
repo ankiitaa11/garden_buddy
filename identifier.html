@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Identifier - Garden Buddy</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f0fff4;
+    }
+    header {
+      background-color: #38a169;
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    main {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    input[type="file"] {
+      margin: 1rem 0;
+    }
+    button {
+      background-color: #38a169;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #preview {
+      margin-top: 1rem;
+      max-width: 100%;
+      border-radius: 8px;
+      display: none;
+    }
+    .result {
+      margin-top: 2rem;
+      background-color: #e6ffed;
+      padding: 1rem;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📷 Plant Identifier</h1>
+    <a href="home.html" style="color:white;text-decoration:none;font-weight:bold;">🏠 Home</a>
+  </header>
+
+  <main>
+    <h2>Upload a Plant Photo</h2>
+    <input type="file" accept="image/*" id="imageInput">
+    <br>
+    <button onclick="showResult()">Identify</button>
+
+    <img id="preview" alt="Preview" />
+
+    <div class="result" id="resultBox">
+      🌿 <strong>Result:</strong> This looks like a <strong>Tulsi</strong> plant. Water lightly and provide morning sunlight.
+    </div>
+  </main>
+
+  <script>
+    const imageInput = document.getElementById('imageInput');
+    const preview = document.getElementById('preview');
+    const resultBox = document.getElementById('resultBox');
+
+    // Show preview when image is selected
+    imageInput.addEventListener('change', function() {
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.src = e.target.result;
+          preview.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Show static result (simulate AI result)
+    function showResult() {
+      if (imageInput.files.length === 0) {
+        alert("📸 Please select an image first.");
+        return;
+      }
+      resultBox.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
